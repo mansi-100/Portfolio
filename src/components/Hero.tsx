@@ -49,7 +49,15 @@ const Hero = () => {
       }
     }
   };
-
+  const handleScrollToBottom = () => {
+    const sections = document.querySelectorAll("section");
+    const lastSection = sections[sections.length - 1];
+    lastSection?.scrollIntoView({ behavior: "smooth" });
+  };
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.preventDefault(); // prevent actual link behavior
+    alert("📩 Please contact Mansi for CV.");
+  };
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Animated background elements */}
@@ -149,16 +157,16 @@ const Hero = () => {
             <Mail size={20} />
             <span>Get In Touch</span>
           </motion.a>
-
           <motion.a
-            href="#"
-            className="border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-gray-900 px-8 py-3 rounded-full font-semibold transition-all duration-300 flex items-center space-x-2"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Download size={20} />
-            <span>Download CV</span>
-          </motion.a>
+              href="#"
+              onClick={handleClick}
+              className="border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-gray-900 px-8 py-3 rounded-full font-semibold transition-all duration-300 flex items-center space-x-2 cursor-pointer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Download size={20} />
+              <span>Download CV</span>
+            </motion.a>
         </motion.div>
 
         <motion.div
@@ -186,15 +194,14 @@ const Hero = () => {
             </motion.a>
           ))}
         </motion.div>
-
-        <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          variants={itemVariants}
-        >
-          <ChevronDown className="text-cyan-400" size={32} />
-        </motion.div>
+    <motion.div
+      className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer"
+      animate={{ y: [0, 10, 0] }}
+      transition={{ duration: 2, repeat: Infinity }}
+      onClick={handleScrollToBottom}
+    >
+      <ChevronDown className="text-cyan-400" size={32} />
+    </motion.div>
       </motion.div>
     </section>
   );

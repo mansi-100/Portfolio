@@ -105,8 +105,8 @@ const About = () => {
                     transition={{ type: "spring", stiffness: 300 }}
                   >
                     <h4 className="text-lg font-medium text-cyan-400">Master of Computer Applications (MCA)</h4>
-                    <p className="text-gray-300">Semester 4 - 87% CGPA</p>
-                    <p className="text-gray-400 text-sm">Specializing in Software Development & Advanced Computing</p>
+                    <p className="text-gray-300">Semester 4 - 87% & 8.7 CGPA</p>
+                    <p className="text-gray-400 text-sm">Specializing in Software Development & .NET Development</p>
                   </motion.div>
                 </div>
               </motion.div>
