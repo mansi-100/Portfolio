@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Github, ExternalLink, Code, Database, Smartphone, Globe, Filter, Eye, ShoppingCart, Brain, QrCode, Cpu } from 'lucide-react';
+import { Github, ExternalLink, Code, Database, Smartphone, Globe, Eye, ShoppingCart, Brain, QrCode, Cpu } from 'lucide-react';
 
 const Projects = () => {
   const [ref, inView] = useInView({
@@ -17,7 +17,7 @@ const Projects = () => {
       title: "E-Commerce Platform with JWT Authentication",
       description: "A comprehensive full-stack e-commerce application with role-based authentication, secure payment integration, and advanced user management.",
       image: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg",
-      technologies: ["React", "Node.js", "MongoDB", "JWT", "Stripe", "Express.js", "Redux"],
+      technologies: ["React", ".NET Core","SQL Server", "JWT",  "Antd Library", "Reducer"],
       category: "web",
       github: "#",
       live: "#",
@@ -38,7 +38,7 @@ const Projects = () => {
       title: "AI Vision Analyzer",
       description: "An intelligent computer vision application that analyzes images using advanced AI algorithms for object detection and classification.",
       image: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg",
-      technologies: ["Python", "TensorFlow", "OpenCV", "React", "Flask", "Machine Learning"],
+      technologies: ["React",".NET Core", "Machine Learning","Azure Machine Learning Library", "REST API"],
       category: "ai",
       github: "https://github.com/mansi-100/AI-Vision-Analyzer.git",
       live: "#",
@@ -57,7 +57,7 @@ const Projects = () => {
       title: "QR Scanner with SMS Integration",
       description: "Smart QR code scanner that automatically detects phone numbers and enables instant SMS communication with advanced contact management.",
       image: "https://images.pexels.com/photos/4164418/pexels-photo-4164418.jpeg",
-      technologies: ["React Native", "Node.js", "Twilio API", "Camera API", "SQLite"],
+      technologies: ["React", "JSQR JS Library", "REST API", "Camera API", ".NET Core"],
       category: "mobile",
       github: "#",
       live: "#",
@@ -76,8 +76,8 @@ const Projects = () => {
       title: "Sensor-Based Gesture Detection",
       description: "An innovative Android application that uses device sensors to detect and recognize hand gestures for seamless user interaction.",
       image: "https://images.pexels.com/photos/4164418/pexels-photo-4164418.jpeg",
-      technologies: ["Android", "Java", "Sensor APIs", "Machine Learning", "TensorFlow Lite"],
-      category: "mobile",
+      technologies: ["IOT", "Arduino Board", "Sensor APIs", "Machine Learning", "TensorFlow Lite"],
+      category: "hardware",
       github: "https://github.com/mansi-100/sensor_based_gesture_detection.git",
       live: "#",
       features: [
@@ -95,8 +95,8 @@ const Projects = () => {
       title: "News API Integration Platform",
       description: "A modern web application that aggregates news from multiple sources using REST APIs with real-time updates and intelligent categorization.",
       image: "https://images.pexels.com/photos/518543/pexels-photo-518543.jpeg",
-      technologies: ["JavaScript", "React", "REST API", "CSS3", "News API", "Redux"],
-      category: "web",
+      technologies: ["Flutter", "DART", "REST API","News API"],
+      category: "mobile",
       github: "https://github.com/mansi-100/News_api_Integration.git",
       live: "#",
       features: [
@@ -133,7 +133,7 @@ const Projects = () => {
       title: "PHP CRUD Management System",
       description: "A complete web application demonstrating full CRUD operations using PHP and MySQL with advanced security features.",
       image: "https://images.pexels.com/photos/4164418/pexels-photo-4164418.jpeg",
-      technologies: ["PHP", "MySQL", "HTML5", "CSS3", "JavaScript", "Bootstrap"],
+      technologies: ["PHP", "MySQL", "HTML5"  , "CSS3", "JavaScript", "Bootstrap"],
       category: "web",
       github: "https://github.com/mansi-100/Mansi_PHP_CRUD.git",
       live: "#",

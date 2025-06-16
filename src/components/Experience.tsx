@@ -18,13 +18,13 @@ const Experience = () => {
       type: "Internship",
       description: "6-month intensive internship focusing on .NET development, web applications, and enterprise software solutions.",
       highlights: [
-        "Developed enterprise web applications using ASP.NET Core and Entity Framework",
+        "Developed enterprise web applications using ASP.NET Core and  Ado.Net",
         "Implemented secure RESTful APIs with JWT authentication",
         "Collaborated with senior developers on large-scale projects",
         "Gained expertise in agile development methodologies and code reviews",
         "Built responsive frontend interfaces using React and modern CSS frameworks"
       ],
-      technologies: [".NET Core", "C#", "Entity Framework", "SQL Server", "React", "Azure", "JWT", "REST APIs"],
+      technologies: [".NET Core", "C#", " Ado.Net",".NET MVC","MongoDB", "SQL Server", "React", "Azure", "JWT", "REST APIs"],
       icon: Code,
       color: "from-blue-500 to-indigo-600"
     },
@@ -42,7 +42,7 @@ const Experience = () => {
         "Implemented secure authentication systems and payment gateways",
         "Contributed to open-source projects and maintained GitHub repositories"
       ],
-      technologies: ["React", "Node.js", "MongoDB", "Express.js", "React Native", "IoT", "Arduino", "Python"],
+      technologies: ["React", ".NET Core", "MongoDB", "SQL Server", "Android", "IoT", "Arduino", "Python","Java"],
       icon: Briefcase,
       color: "from-green-500 to-teal-600"
     }

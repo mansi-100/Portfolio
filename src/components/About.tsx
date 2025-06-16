@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Code, Database, Smartphone, Globe, Award, BookOpen, Cpu, Bug } from 'lucide-react';
+import { Code, Database, Smartphone, Globe, BookOpen, Cpu, Bug } from 'lucide-react';
 
 const About = () => {
   const [ref, inView] = useInView({
@@ -142,10 +142,10 @@ const About = () => {
             
             <div className="grid grid-cols-2 gap-4 mt-8">
               {[
-                { label: "Projects Built", value: "25+" },
-                { label: "Technologies Mastered", value: "30+" },
-                { label: "Bug Reports Filed", value: "50+" },
-                { label: "IoT Devices Built", value: "8+" }
+                { label: "Projects Built", value: "15+" },
+                { label: "Technologies Learned", value: "10+" },
+                { label: "Bug Found", value: "20+" },
+                {label : "Applications Developed", value: "5+" },
               ].map((stat, index) => (
                 <motion.div
                   key={stat.label}
