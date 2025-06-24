@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown, Github, Linkedin, Mail, Download, Sparkles, Code, Zap, Star } from 'lucide-react';
+import { ChevronDown, Github, Linkedin, Mail, Download, Zap, Code2, Sparkles } from 'lucide-react';
 
 const Hero = () => {
   const [text, setText] = useState('');
@@ -28,28 +28,6 @@ const Hero = () => {
     };
   }, []);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.5
-      }
-    }
-  };
-
   const handleScrollToBottom = () => {
     const sections = document.querySelectorAll("section");
     const lastSection = sections[sections.length - 1];
@@ -66,44 +44,51 @@ const Hero = () => {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Enhanced Background Effects */}
+      {/* Neon Grid Background */}
       <div className="absolute inset-0">
-        {/* Gradient Mesh Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/30 to-pink-900/20" />
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/10 via-slate-900 to-violet-900/10" />
         
-        {/* Animated Grid */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
+        {/* Animated Neon Grid */}
+        <motion.div 
+          className="absolute inset-0 opacity-20"
+          style={{
             backgroundImage: `
-              linear-gradient(rgba(0, 245, 255, 0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(0, 245, 255, 0.1) 1px, transparent 1px)
+              linear-gradient(rgba(16, 185, 129, 0.3) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(16, 185, 129, 0.3) 1px, transparent 1px)
             `,
-            backgroundSize: '50px 50px'
-          }} />
-        </div>
+            backgroundSize: '60px 60px'
+          }}
+          animate={{
+            backgroundPosition: ['0px 0px', '60px 60px'],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        />
 
-        {/* Floating Orbs */}
-        {[...Array(12)].map((_, i) => (
+        {/* Floating Neon Orbs */}
+        {[...Array(8)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute rounded-full opacity-20 blur-xl"
+            className="absolute rounded-full blur-xl"
             style={{
-              width: Math.random() * 200 + 100,
-              height: Math.random() * 200 + 100,
-              background: `linear-gradient(45deg, ${
-                i % 4 === 0 ? '#00f5ff' : 
-                i % 4 === 1 ? '#ff006e' : 
-                i % 4 === 2 ? '#8b5cf6' : '#00ff88'
+              width: Math.random() * 300 + 100,
+              height: Math.random() * 300 + 100,
+              background: `radial-gradient(circle, ${
+                i % 4 === 0 ? 'rgba(16, 185, 129, 0.2)' : 
+                i % 4 === 1 ? 'rgba(139, 92, 246, 0.2)' : 
+                i % 4 === 2 ? 'rgba(236, 72, 153, 0.2)' : 'rgba(59, 130, 246, 0.2)'
               }, transparent)`
             }}
             animate={{
               x: [Math.random() * window.innerWidth, Math.random() * window.innerWidth],
               y: [Math.random() * window.innerHeight, Math.random() * window.innerHeight],
               scale: [1, 1.5, 1],
-              rotate: [0, 360],
             }}
             transition={{
-              duration: 20 + Math.random() * 10,
+              duration: 15 + Math.random() * 10,
               repeat: Infinity,
               ease: "easeInOut",
             }}
@@ -113,168 +98,132 @@ const Hero = () => {
             }}
           />
         ))}
-
-        {/* Particle System */}
-        {[...Array(30)].map((_, i) => (
-          <motion.div
-            key={`particle-${i}`}
-            className="absolute w-1 h-1 bg-cyan-400 rounded-full"
-            animate={{
-              x: [0, Math.random() * 200 - 100],
-              y: [0, Math.random() * 200 - 100],
-              opacity: [0, 1, 0],
-              scale: [0, 1.5, 0],
-            }}
-            transition={{
-              duration: 3 + Math.random() * 2,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-            }}
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-          />
-        ))}
       </div>
 
       <motion.div
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
       >
-        {/* Enhanced Profile Section */}
+        {/* Futuristic Profile Section */}
         <motion.div
-          className="mb-12"
-          variants={itemVariants}
+          className="mb-16"
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
         >
           <motion.div
-            className="relative w-48 h-48 mx-auto mb-8"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
+            className="relative w-56 h-56 mx-auto mb-12"
+            whileHover={{ scale: 1.05 }}
           >
-            {/* Rotating Ring */}
+            {/* Neon Ring Animation */}
             <motion.div
-              className="absolute inset-0 rounded-full"
-              style={{
-                background: 'conic-gradient(from 0deg, #00f5ff, #ff006e, #8b5cf6, #00ff88, #00f5ff)',
-                padding: '4px'
-              }}
+              className="absolute inset-0 rounded-full border-4 border-emerald-400"
               animate={{ rotate: 360 }}
-              transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-            >
-              <div className="w-full h-full rounded-full bg-gray-900 flex items-center justify-center relative overflow-hidden">
-                {/* Inner Gradient */}
-                <div className="w-40 h-40 rounded-full bg-gradient-to-br from-cyan-400 via-purple-500 to-pink-500 flex items-center justify-center text-5xl font-bold text-gray-900 relative">
-                  MN
-                  {/* Shine Effect */}
-                  <motion.div
-                    className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/30 to-transparent"
-                    animate={{ x: ['-100%', '100%'] }}
-                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                  />
-                </div>
-              </div>
-            </motion.div>
+              transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+              style={{
+                filter: 'drop-shadow(0 0 20px rgba(16, 185, 129, 0.8))'
+              }}
+            />
+            
+            <motion.div
+              className="absolute inset-2 rounded-full border-2 border-violet-400"
+              animate={{ rotate: -360 }}
+              transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+              style={{
+                filter: 'drop-shadow(0 0 15px rgba(139, 92, 246, 0.6))'
+              }}
+            />
 
-            {/* Floating Icons */}
-            {[Code, Zap, Star].map((Icon, index) => (
+            {/* Profile Content */}
+            <div className="absolute inset-4 rounded-full bg-gradient-to-br from-slate-800 to-gray-900 flex items-center justify-center border border-gray-700">
+              <div className="w-40 h-40 rounded-full bg-gradient-to-br from-emerald-400 via-violet-500 to-pink-500 flex items-center justify-center text-6xl font-black text-gray-900 relative overflow-hidden">
+                MN
+                {/* Shine Effect */}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                  animate={{ x: ['-100%', '100%'] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                />
+              </div>
+            </div>
+
+            {/* Floating Tech Icons */}
+            {[Code2, Zap, Sparkles].map((Icon, index) => (
               <motion.div
                 key={index}
-                className="absolute w-8 h-8 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full flex items-center justify-center"
+                className="absolute w-12 h-12 bg-gradient-to-r from-emerald-400 to-violet-500 rounded-full flex items-center justify-center"
                 style={{
-                  top: `${20 + index * 30}%`,
-                  right: index % 2 === 0 ? '-10px' : 'auto',
-                  left: index % 2 === 1 ? '-10px' : 'auto',
+                  top: `${15 + index * 25}%`,
+                  right: index % 2 === 0 ? '-20px' : 'auto',
+                  left: index % 2 === 1 ? '-20px' : 'auto',
+                  filter: 'drop-shadow(0 0 10px rgba(16, 185, 129, 0.8))'
                 }}
                 animate={{
-                  y: [0, -10, 0],
+                  y: [0, -15, 0],
                   rotate: [0, 360],
                 }}
                 transition={{
-                  duration: 3,
+                  duration: 4,
                   repeat: Infinity,
-                  delay: index * 0.5,
+                  delay: index * 0.7,
                 }}
               >
-                <Icon className="text-gray-900" size={16} />
+                <Icon className="text-gray-900" size={20} />
               </motion.div>
             ))}
-
-            {/* Sparkle Effect */}
-            <motion.div
-              className="absolute -top-4 -right-4"
-              animate={{ 
-                rotate: 360,
-                scale: [1, 1.2, 1]
-              }}
-              transition={{ 
-                rotate: { duration: 2, repeat: Infinity, ease: "linear" },
-                scale: { duration: 1, repeat: Infinity, ease: "easeInOut" }
-              }}
-            >
-              <Sparkles className="text-yellow-400" size={32} />
-            </motion.div>
           </motion.div>
         </motion.div>
 
-        {/* Enhanced Name Section */}
-        <motion.div variants={itemVariants} className="mb-8">
+        {/* Neon Name Section */}
+        <motion.div 
+          className="mb-12"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        >
           <motion.h1
-            className="text-6xl md:text-8xl font-black mb-4 relative"
+            className="text-7xl md:text-9xl font-black mb-6 relative"
             style={{
-              background: 'linear-gradient(135deg, #00f5ff 0%, #ff006e 25%, #8b5cf6 50%, #00ff88 75%, #00f5ff 100%)',
-              backgroundSize: '300% 300%',
+              background: 'linear-gradient(135deg, #10b981 0%, #8b5cf6 50%, #ec4899 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
+              filter: 'drop-shadow(0 0 30px rgba(16, 185, 129, 0.5))'
             }}
-            animate={{
-              backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-            }}
-            transition={{
-              duration: 5,
-              repeat: Infinity,
-              ease: "easeInOut",
+            whileHover={{
+              filter: 'drop-shadow(0 0 50px rgba(16, 185, 129, 0.8))',
+              scale: 1.02
             }}
           >
             Mansi Nayak
-            
-            {/* Text Shadow Effect */}
-            <motion.div
-              className="absolute inset-0 text-6xl md:text-8xl font-black opacity-20 blur-sm"
-              style={{
-                background: 'linear-gradient(135deg, #00f5ff, #ff006e, #8b5cf6, #00ff88)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-              }}
-              animate={{
-                scale: [1, 1.02, 1],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            >
-              Mansi Nayak
-            </motion.div>
           </motion.h1>
         </motion.div>
 
-        {/* Enhanced Typing Animation */}
+        {/* Typing Animation with Neon Effect */}
         <motion.div
-          className="text-2xl md:text-3xl text-gray-300 mb-12 h-12 flex items-center justify-center"
-          variants={itemVariants}
+          className="text-3xl md:text-4xl mb-16 h-16 flex items-center justify-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
         >
           <div className="relative">
-            <span className="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent font-semibold">
+            <span 
+              className="font-bold"
+              style={{
+                color: '#10b981',
+                textShadow: '0 0 20px rgba(16, 185, 129, 0.8), 0 0 40px rgba(16, 185, 129, 0.4)'
+              }}
+            >
               {text}
             </span>
             <motion.span 
-              className={`ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity`}
+              className={`ml-2 ${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity`}
+              style={{
+                color: '#ec4899',
+                textShadow: '0 0 20px rgba(236, 72, 153, 0.8)'
+              }}
               animate={{ scale: [1, 1.2, 1] }}
               transition={{ duration: 1, repeat: Infinity }}
             >
@@ -285,195 +234,164 @@ const Hero = () => {
 
         {/* Enhanced Description */}
         <motion.div
-          className="mb-12"
-          variants={itemVariants}
+          className="mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
         >
           <motion.p
-            className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed relative"
-            whileHover={{ scale: 1.02 }}
+            className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed relative p-8 rounded-2xl"
+            style={{
+              background: 'rgba(15, 23, 42, 0.6)',
+              border: '1px solid rgba(16, 185, 129, 0.2)',
+              backdropFilter: 'blur(10px)'
+            }}
+            whileHover={{ 
+              borderColor: 'rgba(16, 185, 129, 0.5)',
+              boxShadow: '0 0 30px rgba(16, 185, 129, 0.2)'
+            }}
           >
-            <span className="relative z-10">
-              Passionate MCA student specializing in full-stack development with expertise in 
-              <span className="text-cyan-400 font-semibold"> .NET</span>, 
-              <span className="text-purple-400 font-semibold"> React</span>, and 
-              <span className="text-pink-400 font-semibold"> modern web technologies</span>. 
-              Creating innovative solutions that bridge technology and user experience.
-            </span>
-            
-            {/* Background Highlight */}
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-cyan-400/10 via-purple-500/10 to-pink-500/10 rounded-lg blur-xl"
-              animate={{
-                opacity: [0.3, 0.6, 0.3],
-                scale: [1, 1.02, 1],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            />
+            Passionate MCA student specializing in full-stack development with expertise in 
+            <span className="text-emerald-400 font-bold"> .NET</span>, 
+            <span className="text-violet-400 font-bold"> React</span>, and 
+            <span className="text-pink-400 font-bold"> modern web technologies</span>. 
+            Creating innovative solutions that bridge technology and user experience.
           </motion.p>
         </motion.div>
 
-        {/* Enhanced Action Buttons */}
+        {/* Neon Action Buttons */}
         <motion.div
-          className="flex flex-wrap justify-center gap-6 mb-16"
-          variants={itemVariants}
+          className="flex flex-wrap justify-center gap-8 mb-20"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1 }}
         >
           <motion.a
             href="https://mail.google.com/mail/?view=cm&fs=1&to=mansinayak170@gmail.com"
             target="_blank"
-            className="group relative px-10 py-4 rounded-full font-bold text-lg overflow-hidden"
-            whileHover={{ scale: 1.05 }}
+            className="group relative px-12 py-5 rounded-full font-bold text-lg overflow-hidden"
+            style={{
+              background: 'linear-gradient(135deg, #10b981, #8b5cf6)',
+              boxShadow: '0 0 30px rgba(16, 185, 129, 0.5)',
+              border: '2px solid rgba(16, 185, 129, 0.3)'
+            }}
+            whileHover={{ 
+              scale: 1.05,
+              boxShadow: '0 0 50px rgba(16, 185, 129, 0.8)'
+            }}
             whileTap={{ scale: 0.95 }}
           >
-            {/* Animated Background */}
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-purple-600 to-pink-500"
-              animate={{
-                backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              style={{ backgroundSize: '200% 200%' }}
-            />
-            
-            {/* Button Content */}
             <div className="relative z-10 flex items-center space-x-3 text-white">
-              <motion.div
-                animate={{ rotate: [0, 360] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-              >
-                <Mail size={24} />
-              </motion.div>
+              <Mail size={24} />
               <span>Get In Touch</span>
             </div>
-            
-            {/* Shine Effect */}
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-              animate={{ x: ['-100%', '100%'] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            />
           </motion.a>
 
           <motion.a
             href="#"
             onClick={handleClick}
-            className="group relative px-10 py-4 rounded-full font-bold text-lg border-2 border-cyan-400 text-cyan-400 overflow-hidden"
+            className="group relative px-12 py-5 rounded-full font-bold text-lg border-2 border-emerald-400 text-emerald-400 overflow-hidden"
+            style={{
+              background: 'rgba(15, 23, 42, 0.8)',
+              boxShadow: '0 0 20px rgba(16, 185, 129, 0.3)'
+            }}
             whileHover={{ 
               scale: 1.05,
-              borderColor: "#ff006e",
-              color: "#ff006e"
+              borderColor: '#ec4899',
+              color: '#ec4899',
+              boxShadow: '0 0 30px rgba(236, 72, 153, 0.5)'
             }}
             whileTap={{ scale: 0.95 }}
           >
-            {/* Hover Background */}
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-cyan-400/10 to-purple-500/10"
-              initial={{ scale: 0, opacity: 0 }}
-              whileHover={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.3 }}
-            />
-            
             <div className="relative z-10 flex items-center space-x-3">
-              <motion.div
-                whileHover={{ rotate: 360 }}
-                transition={{ duration: 0.5 }}
-              >
-                <Download size={24} />
-              </motion.div>
+              <Download size={24} />
               <span>Download CV</span>
             </div>
           </motion.a>
         </motion.div>
 
-        {/* Enhanced Social Links */}
+        {/* Neon Social Links */}
         <motion.div
-          className="flex justify-center space-x-8 mb-16"
-          variants={itemVariants}
+          className="flex justify-center space-x-10 mb-20"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.2 }}
         >
           {[
-            { icon: Github, href: "https://github.com/mansi-100", label: "GitHub", color: "from-gray-600 to-gray-800" },
-            { icon: Linkedin, href: "https://www.linkedin.com/in/mansi-nayak-a575b3269/", label: "LinkedIn", color: "from-blue-600 to-blue-800" },
-            { icon: Mail, href: "mailto:mansinayak170@gmail.com", label: "Email", color: "from-red-500 to-pink-600" }
+            { icon: Github, href: "https://github.com/mansi-100", label: "GitHub", color: '#6b7280' },
+            { icon: Linkedin, href: "https://www.linkedin.com/in/mansi-nayak-a575b3269/", label: "LinkedIn", color: '#3b82f6' },
+            { icon: Mail, href: "mailto:mansinayak170@gmail.com", label: "Email", color: '#ec4899' }
           ].map((social, index) => (
             <motion.a
               key={social.label}
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative w-16 h-16 rounded-full overflow-hidden"
-              whileHover={{ scale: 1.2, y: -5 }}
+              className="group relative w-20 h-20 rounded-full overflow-hidden"
+              style={{
+                background: 'rgba(15, 23, 42, 0.8)',
+                border: `2px solid ${social.color}`,
+                boxShadow: `0 0 20px ${social.color}40`
+              }}
+              whileHover={{ 
+                scale: 1.2, 
+                y: -10,
+                boxShadow: `0 0 40px ${social.color}80`
+              }}
               whileTap={{ scale: 0.9 }}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 + index * 0.1 }}
+              transition={{ delay: 1.4 + index * 0.1 }}
             >
-              {/* Background */}
-              <div className={`absolute inset-0 bg-gradient-to-r ${social.color} opacity-80`} />
-              
-              {/* Hover Effect */}
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-purple-500 opacity-0 group-hover:opacity-100"
-                transition={{ duration: 0.3 }}
-              />
-              
-              {/* Icon */}
-              <div className="relative z-10 w-full h-full flex items-center justify-center text-white">
-                <motion.div
-                  whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <social.icon size={24} />
-                </motion.div>
+              <div className="w-full h-full flex items-center justify-center text-white">
+                <social.icon size={28} style={{ color: social.color }} />
               </div>
-              
-              {/* Ripple Effect */}
-              <motion.div
-                className="absolute inset-0 border-2 border-white/30 rounded-full"
-                animate={{
-                  scale: [1, 1.5, 1],
-                  opacity: [0.5, 0, 0.5],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  delay: index * 0.3,
-                }}
-              />
             </motion.a>
           ))}
         </motion.div>
 
-        {/* Enhanced Scroll Indicator */}
+        {/* Futuristic Scroll Indicator */}
         <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer group"
-          animate={{ y: [0, 15, 0] }}
+          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 cursor-pointer"
+          animate={{ y: [0, 20, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
           onClick={handleScrollToBottom}
         >
-          <div className="flex flex-col items-center space-y-2">
+          <div className="flex flex-col items-center space-y-4">
             <motion.div
-              className="w-6 h-10 border-2 border-cyan-400 rounded-full flex justify-center relative overflow-hidden"
-              whileHover={{ borderColor: "#ff006e" }}
+              className="w-8 h-14 border-2 border-emerald-400 rounded-full flex justify-center relative"
+              style={{
+                boxShadow: '0 0 20px rgba(16, 185, 129, 0.5)'
+              }}
+              whileHover={{ 
+                borderColor: '#ec4899',
+                boxShadow: '0 0 30px rgba(236, 72, 153, 0.5)'
+              }}
             >
               <motion.div
-                className="w-1 h-3 bg-cyan-400 rounded-full mt-2"
-                animate={{ y: [0, 12, 0] }}
+                className="w-2 h-6 bg-emerald-400 rounded-full mt-2"
+                animate={{ y: [0, 20, 0] }}
                 transition={{ duration: 1.5, repeat: Infinity }}
+                style={{
+                  boxShadow: '0 0 10px rgba(16, 185, 129, 0.8)'
+                }}
               />
             </motion.div>
-            <motion.div
-              whileHover={{ scale: 1.2 }}
+            <ChevronDown 
+              className="text-emerald-400" 
+              size={28}
+              style={{
+                filter: 'drop-shadow(0 0 10px rgba(16, 185, 129, 0.8))'
+              }}
+            />
+            <span 
+              className="text-sm text-gray-400 font-medium"
+              style={{
+                textShadow: '0 0 10px rgba(16, 185, 129, 0.3)'
+              }}
             >
-              <ChevronDown className="text-cyan-400 group-hover:text-purple-400 transition-colors" size={24} />
-            </motion.div>
-            <span className="text-xs text-gray-400 font-medium">Scroll Down</span>
+              Explore More
+            </span>
           </div>
         </motion.div>
       </motion.div>

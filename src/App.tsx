@@ -13,7 +13,7 @@ import AnimatedBackground from './components/AnimatedBackground';
 
 function App() {
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 overflow-x-hidden">
+    <div className="relative min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-black overflow-x-hidden">
       <AnimatedBackground />
       <ParticleBackground />
       <FloatingElements />
