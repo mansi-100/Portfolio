@@ -87,7 +87,7 @@ const experiences: Experience[] = [
     color: "from-yellow-400 to-orange-500",
     certificate: {
       available: true,
-      certificateImage: "/src/assets/ml.jpg",
+      certificateImage: "/ml.jpg",
       certificateUrl: "",
       certificateTitle: "CognoRise InfoTech Android Developer Certificate",
       showOption: true
@@ -113,8 +113,8 @@ const experiences: Experience[] = [
     color: "from-pink-500 to-purple-600",
     certificate: {
       available: true,
-      certificateImage: "/src/assets/android_prodigy.jpg",
-      recommendationImage: "/src/assets/LOR.jpg",
+      certificateImage: "/android_prodigy.jpg",
+      recommendationImage: "/LOR.jpg",
       certificateUrl: "",
       recommendationUrl: "",
       hasRecommendation: true,
