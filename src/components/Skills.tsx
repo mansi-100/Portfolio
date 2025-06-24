@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Code, Database, Smartphone, Globe, Settings, Zap, Cpu, Bug, Shield, Brain } from 'lucide-react';
+import { Code, Database, Smartphone, Globe, Settings, Cpu, Shield, Brain } from 'lucide-react';
 
 const Skills = () => {
   const [ref, inView] = useInView({
@@ -16,7 +16,7 @@ const Skills = () => {
       color: "from-blue-500 to-cyan-500",
       skills: [
         { name: "React", level: 92 },
-        { name: "JavaScript", level: 88 },
+        { name: "Bootstrap", level: 88 },
         { name: "HTML5/CSS3", level: 95 },
         { name: "TypeScript", level: 85 },
         { name: "Responsive Design", level: 90 }
@@ -29,7 +29,7 @@ const Skills = () => {
       skills: [
         { name: ".NET Core", level: 88 },
         { name: "C#", level: 85 },
-        { name: "Node.js", level: 82 },
+        { name: "Java", level: 82 },
         { name: "PHP", level: 75 },
         { name: "RESTful APIs", level: 90 }
       ]
@@ -41,7 +41,6 @@ const Skills = () => {
       skills: [
         { name: "Android", level: 85 },
         { name: "Java", level: 88 },
-        { name: "React Native", level: 80 },
         { name: "Flutter", level: 75 },
         { name: "Mobile UI/UX", level: 82 }
       ]
@@ -66,7 +65,6 @@ const Skills = () => {
         { name: "Arduino", level: 85 },
         { name: "Raspberry Pi", level: 80 },
         { name: "Sensor Integration", level: 88 },
-        { name: "MQTT Protocol", level: 75 },
         { name: "IoT Analytics", level: 78 }
       ]
     },
@@ -76,7 +74,6 @@ const Skills = () => {
       color: "from-pink-500 to-rose-500",
       skills: [
         { name: "Python", level: 85 },
-        { name: "TensorFlow", level: 80 },
         { name: "Computer Vision", level: 82 },
         { name: "OpenCV", level: 78 },
         { name: "Data Analysis", level: 80 }
@@ -88,10 +85,7 @@ const Skills = () => {
       color: "from-red-500 to-pink-500",
       skills: [
         { name: "Bug Hunting", level: 88 },
-        { name: "Penetration Testing", level: 82 },
-        { name: "Security Auditing", level: 85 },
         { name: "JWT Authentication", level: 90 },
-        { name: "OWASP Standards", level: 80 }
       ]
     },
     {
@@ -101,9 +95,7 @@ const Skills = () => {
       skills: [
         { name: "Git/GitHub", level: 92 },
         { name: "Visual Studio", level: 88 },
-        { name: "Docker", level: 75 },
-        { name: "CI/CD", level: 78 },
-        { name: "Agile/Scrum", level: 85 }
+        { name: "Android Studio", level: 75 },
       ]
     }
   ];
@@ -246,11 +238,20 @@ const Skills = () => {
           </motion.h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { title: "Microsoft Certified", description: ".NET Development", icon: "🏆", color: "from-blue-500 to-indigo-500" },
-              { title: "React Expert", description: "Advanced Concepts", icon: "⚛️", color: "from-cyan-500 to-blue-500" },
-              { title: "IoT Specialist", description: "Hardware Integration", icon: "🔧", color: "from-green-500 to-teal-500" },
-              { title: "Security Researcher", description: "Bug Bounty Hunter", icon: "🛡️", color: "from-red-500 to-pink-500" }
-            ].map((cert, index) => (
+            { title: "Gold Medal – BCA 1st Ranker", description: "92% | CGPA – 9.2", icon: "🥇", color: "from-yellow-400 to-yellow-600" },
+            { title: "MCA Distinction", description: "89% | SGPA – 8.9", icon: "🎓", color: "from-purple-500 to-violet-600" },
+            { title: "Letter of Recommendation", description: "From Prodigy Infotech", icon: "📜", color: "from-blue-600 to-cyan-600" },
+            { title: "Odo Hackathon Participant", description: "June 2024", icon: "💻", color: "from-indigo-500 to-indigo-700" },
+            { title: "Cyber Security Workshop", description: "EDII India", icon: "🛡️", color: "from-red-500 to-pink-500" },
+            { title: "Elocution Competition", description: "GLS Univ – Swami Vivekananda 2024", icon: "🎤", color: "from-teal-500 to-green-500" },
+            { title: "HTML & CSS Code Express", description: "GLS University", icon: "🌐", color: "from-blue-400 to-blue-600" },
+            { title: "Go Lang Code Express", description: "GLS University", icon: "🐹", color: "from-sky-500 to-sky-700" },
+            { title: "Oracle DB for Devs", description: "Oracle Certified", icon: "🗄️", color: "from-orange-400 to-red-400" },
+            { title: "CSS for Beginners", description: "Udemy Certified", icon: "🎨", color: "from-purple-400 to-fuchsia-500" },
+            { title: "Basics of Python", description: "Udemy Certified", icon: "🐍", color: "from-green-400 to-green-600" },
+            { title: "DBMS Course", description: "Udemy Certified", icon: "🧮", color: "from-gray-500 to-slate-600" }
+          ].map((cert, index) => (
+
               <motion.div
                 key={cert.title}
                 className="bg-gray-800/20 backdrop-blur-sm rounded-lg p-6 text-center border border-gray-700/30 group"

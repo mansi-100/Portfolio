@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Code, Database, Smartphone, Globe, BookOpen, Cpu, Bug } from 'lucide-react';
@@ -32,7 +31,7 @@ const About = () => {
   };
 
   const interests = [
-    { icon: Code, title: "Full Stack Development", description: "Building end-to-end web applications with modern frameworks" },
+    { icon: Code, title: "Full Stack Development ", description: "Building end-to-end web applications with modern frameworks" },
     { icon: Database, title: "Backend Systems", description: "Designing scalable and efficient server-side solutions" },
     { icon: Smartphone, title: "Mobile Development", description: "Creating cross-platform mobile experiences" },
     { icon: Globe, title: "API Integration", description: "Connecting systems through robust API architectures" },
@@ -105,7 +104,7 @@ const About = () => {
                     transition={{ type: "spring", stiffness: 300 }}
                   >
                     <h4 className="text-lg font-medium text-cyan-400">Master of Computer Applications (MCA)</h4>
-                    <p className="text-gray-300">Semester 4 - 87% & 8.7 CGPA</p>
+                    <p className="text-gray-300"> 9.0 CGPA</p>
                     <p className="text-gray-400 text-sm">Specializing in Software Development & .NET Development</p>
                   </motion.div>
                 </div>

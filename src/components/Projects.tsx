@@ -15,16 +15,16 @@ const Projects = () => {
     {
       id: 1,
       title: "E-Commerce Platform with JWT Authentication",
-      description: "A comprehensive full-stack e-commerce application with role-based authentication, secure payment integration, and advanced user management.",
+      description: "A comprehensive full-stack e-commerce application with role-based authentication, secure payment integration(Stripe), and advanced user management.",
       image: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg",
       technologies: ["React", ".NET Core","SQL Server", "JWT",  "Antd Library", "Reducer"],
       category: "web",
-      github: "#",
-      live: "#",
+      github: "https://github.com/mansi-100/E-Commerce.git",
+      live: "https://6f6e4d1d-73c1-4354-b7d8-941ff3e04bf0.e1-us-east-azure.choreoapps.dev/",
       features: [
         "JWT-based secure authentication system",
         "Role-based access (Customer, Seller, Admin)",
-        "Shopping cart and wishlist functionality",
+        "Shopping cart, wishlist and wallet functionality",
         "Digital wallet integration",
         "Order management system",
         "Product management for sellers",
@@ -36,12 +36,12 @@ const Projects = () => {
     {
       id: 2,
       title: "AI Vision Analyzer",
-      description: "An intelligent computer vision application that analyzes images using advanced AI algorithms for object detection and classification.",
+      description: "An AI-powered image analyzer where you can upload real-time photos. It intelligently identifies objects, nature scenes, and even tries to detect the exact place or landmark from the image. Supports both urban and nature photography for accurate classification.",
       image: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg",
       technologies: ["React",".NET Core", "Machine Learning","Azure Machine Learning Library", "REST API"],
       category: "ai",
       github: "https://github.com/mansi-100/AI-Vision-Analyzer.git",
-      live: "#",
+      live: "https://www.linkedin.com/posts/mansi-nayak-a575b3269_ai-computervision-azure-activity-7335650165845819393-YVeD?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEHDISMBzbTUoBbGQHyrN7ofgmHJuItzH0g",
       features: [
         "Real-time object detection",
         "Image classification with high accuracy",
@@ -57,10 +57,10 @@ const Projects = () => {
       title: "QR Scanner with SMS Integration",
       description: "Smart QR code scanner that automatically detects phone numbers and enables instant SMS communication with advanced contact management.",
       image: "https://images.pexels.com/photos/4164418/pexels-photo-4164418.jpeg",
-      technologies: ["React", "JSQR JS Library", "REST API", "Camera API", ".NET Core"],
+      technologies: ["React", "JSQR JS Library", "REST API", ".NET Core"],
       category: "mobile",
-      github: "#",
-      live: "#",
+      github: "https://github.com/mansi-100/QB-Scanner.git",
+      live: "https://eed96fb4-a89d-4bd9-aa1d-167eb4d3f649.e1-us-east-azure.choreoapps.dev/",
       features: [
         "Real-time QR code scanning",
         "Automatic phone number detection",
@@ -74,9 +74,9 @@ const Projects = () => {
     {
       id: 4,
       title: "Sensor-Based Gesture Detection",
-      description: "An innovative Android application that uses device sensors to detect and recognize hand gestures for seamless user interaction.",
-      image: "https://images.pexels.com/photos/4164418/pexels-photo-4164418.jpeg",
-      technologies: ["IOT", "Arduino Board", "Sensor APIs", "Machine Learning", "TensorFlow Lite"],
+      description: "IOT Ultrasonic Sensor that Senses, detects and recognizes hand gestures for seamless user interaction.",
+      image: "https://images.pexels.com/photos/163100/circuit-circuit-board-resistor-computer-163100.jpeg",
+      technologies: ["IOT", "Arduino Board", "Sensor APIs", "Machine Learning"],
       category: "hardware",
       github: "https://github.com/mansi-100/sensor_based_gesture_detection.git",
       live: "#",
@@ -92,7 +92,7 @@ const Projects = () => {
     },
     {
       id: 5,
-      title: "News API Integration Platform",
+      title: "News API Integration Platform (newsapi.org)",
       description: "A modern web application that aggregates news from multiple sources using REST APIs with real-time updates and intelligent categorization.",
       image: "https://images.pexels.com/photos/518543/pexels-photo-518543.jpeg",
       technologies: ["Flutter", "DART", "REST API","News API"],
@@ -132,7 +132,7 @@ const Projects = () => {
       id: 7,
       title: "PHP CRUD Management System",
       description: "A complete web application demonstrating full CRUD operations using PHP and MySQL with advanced security features.",
-      image: "https://images.pexels.com/photos/4164418/pexels-photo-4164418.jpeg",
+      image: "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg",
       technologies: ["PHP", "MySQL", "HTML5"  , "CSS3", "JavaScript", "Bootstrap"],
       category: "web",
       github: "https://github.com/mansi-100/Mansi_PHP_CRUD.git",
@@ -160,6 +160,14 @@ const Projects = () => {
   const filteredProjects = filter === 'all' 
     ? projects 
     : projects.filter(project => project.category === filter);
+    
+
+  const handleDemoClick = (e: React.MouseEvent<HTMLAnchorElement>, liveUrl: string) => {
+    if (liveUrl === "#") {
+      e.preventDefault();
+      alert("Sorry, we can't show this demo right now! 🚧");
+    }
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -246,7 +254,11 @@ const Projects = () => {
         <AnimatePresence mode="wait">
           <motion.div
             key={filter}
-            className="grid md:grid-cols-2 lg:grid-cols-2 gap-8"
+            className={`grid gap-8 ${
+              filteredProjects.length === 1 
+                ? 'flex justify-center' 
+                : 'md:grid-cols-2 lg:grid-cols-2'
+            }`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
@@ -255,7 +267,9 @@ const Projects = () => {
             {filteredProjects.map((project, index) => (
               <motion.div
                 key={project.id}
-                className="group relative bg-gray-800/30 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-700/30"
+                className={`group relative bg-gray-800/30 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-700/30 ${
+                  filteredProjects.length === 1 ? 'max-w-lg w-full' : ''
+                }`}
                 variants={itemVariants}
                 whileHover={{ 
                   y: -10, 
@@ -293,6 +307,7 @@ const Projects = () => {
                       </motion.a>
                       <motion.a
                         href={project.live}
+                        onClick={(e) => handleDemoClick(e, project.live)}
                         className="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-white hover:bg-purple-500 transition-colors duration-300"
                         whileHover={{ scale: 1.2, rotate: 360 }}
                         whileTap={{ scale: 0.9 }}
@@ -377,6 +392,7 @@ const Projects = () => {
                     </motion.a>
                     <motion.a
                       href={project.live}
+                      onClick={(e) => handleDemoClick(e, project.live)}
                       className="flex items-center space-x-2 text-gray-400 hover:text-purple-400 transition-colors duration-300"
                       whileHover={{ x: 5 }}
                     >

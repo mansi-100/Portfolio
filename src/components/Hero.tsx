@@ -5,7 +5,7 @@ import { ChevronDown, Github, Linkedin, Mail, Download, Sparkles } from 'lucide-
 const Hero = () => {
   const [text, setText] = useState('');
   const [showCursor, setShowCursor] = useState(true);
-  const fullText = "Full Stack Developer & Tech Enthusiast";
+  const fullText = "Software Developer & Tech Enthusiast";
 
   useEffect(() => {
     let i = 0;
@@ -54,10 +54,15 @@ const Hero = () => {
     const lastSection = sections[sections.length - 1];
     lastSection?.scrollIntoView({ behavior: "smooth" });
   };
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-    e.preventDefault(); // prevent actual link behavior
-    alert("📩 Please contact Mansi for CV.");
-  };
+const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+  e.preventDefault(); // prevent actual navigation
+
+  const link = document.createElement('a');
+  link.href = '/cv.pdf'; // path to your CV file inside the public folder
+  link.download = 'Mansi_Nayak_CV.pdf'; // file name for the download
+  link.click();
+};
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Animated background elements */}
